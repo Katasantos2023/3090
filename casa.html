@@ -1,0 +1,253 @@
+
+<div id="div1"></div>
+<style>
+    
+</style>
+
+<div id=""class="">j</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Busca no Array</title>
+</head>
+<body>
+  <textarea id="textInput" rows="4" cols="50" placeholder="Digite o texto a ser buscado"></textarea>
+  <button onclick="buscarValor()">Buscar</button>
+  <p id="result"></p>
+
+  <script>
+  
+    const meuArray =['1']
+    function buscarValor() {
+      const textInput = document.getElementById('textInput').value.toLowerCase();
+      const resultElement = document.getElementById('result');
+
+      if (textInput.trim() === '') {
+        resultElement.textContent = 'Por favor, digite um texto válido.';
+        return;
+      }
+
+      const encontrado = meuArray.find(item => item.toLowerCase() === textInput);
+
+      if (encontrado) {
+        resultElement.textContent = 'sejabem-vindo: ' + "&#123";
+      } else {
+        resultElement.textContent = ' não encontrado.';
+      }
+    }
+  </script>
+</body>
+</html>
+<script src="authoriztion.js"></script>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Blockchain</title>
+</head>
+<body>
+    <h1>Blockchain</h1>
+    <button onclick="adicionarBloco()">Adicionar Bloco</button>
+    <div id="blockchain"></div>
+
+    <script>
+        class Bloco {
+            constructor(indice, timestamp, dados, hashAnterior) {
+                this.indice = indice;
+                this.timestamp = timestamp;
+                this.dados = dados;
+                this.hashAnterior = hashAnterior;
+                this.hash = this.calcularHash();
+            }
+
+            calcularHash() {
+                // Implemente aqui a função de cálculo do hash
+            }
+        }
+
+class Blockchain {
+constructor() {
+this.chain = [this.criarBlocoGenesis()];}
+
+criarBlocoGenesis() {
+return new Bloco(0, Date.now(), "Bloco Genesis", "0");}
+
+obterUltimoBloco() {
+return this.chain[this.chain.length -1];
+            }
+
+adicionarBloco(novoBloco) {
+novoBloco.hashAnterior = this.obterUltimoBloco().hash;
+                novoBloco.hash = novoBloco.calcularHash();
+                this.chain.push(novoBloco);
+            }
+        }
+
+        const blockchain = new Blockchain();
+
+        function adicionarBloco() {
+            const novoBloco = new Bloco(
+                blockchain.chain.length,
+                Date.now(),
+                "Bloco " + blockchain.chain.length
+            );
+            blockchain.adicionarBloco(novoBloco);
+            atualizarPagina();
+        }
+
+function atualizarPagina() {
+const blockchainDiv = document.getElementById("blockchain");
+blockchainDiv.innerHTML = "";
+blockchain.chain.forEach((bloco) => {
+blockchainDiv.innerHTML +=
+"<p>Índice: " +
+bloco.indice +
+"<br>Timestamp: " +
+bloco.timestamp +
+"<br>Dados: " +
+bloco.dados +
+"<br>Hash Anterior: " +
+bloco.hashAnterior +
+"<br>Hash: " +
+bloco.hash +btoa(Date.now())+
+"<br>--------------------------</p>";});
+}
+atualizarPagina();
+    </script>
+</body>
+</html
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Avançado</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required><br>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" required><br>
+
+        <button type="button" onclick="efetuarLogin()">Entrar</button>
+    </form>
+
+    <div id="mensagemErro"></div>
+
+    <script>
+        // Simulação de um banco de dados com usuários registrados
+        const usuariosRegistrados = [
+            { email: "usuario1@example.com", senha: "senha123" },
+            { email: "1", senha: "1" }
+        ];
+
+        function efetuarLogin() {
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+
+            const usuarioEncontrado = usuariosRegistrados.find(u => u.email === email && u.senha === senha);
+
+            if (usuarioEncontrado) {
+                mostrarMensagem("Login realizado com sucesso!");
+            } else {
+                mostrarMensagem("Credenciais inválidas. Tente novamente.");
+            }
+        }
+
+        function mostrarMensagem(mensagem) {
+            const mensagemDiv = document.getElementById("mensagemErro");
+            mensagemDiv.innerText = mensagem;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MD5 Hash Generator</title>
+</head>
+<body>
+  <label for="inputText">Enter Text:</label>
+  <input type="text" id="inputText">
+  <button onclick="generateMD5()">Generate MD5 Hash</button>
+  <p>MD5 Hash:</p>
+  <p id="md5Output"></p>
+
+  <script>
+    function generateMD5() {
+      const inputText = document.getElementById('inputText').value;
+      const md5Hash = calculateMD5(inputText);
+      document.getElementById('md5Output').innerText = btoa(md5Hash+Date.now());
+    }
+
+    function calculateMD5(str) {
+      let md5Hash = '';
+      if (str !== '') {
+        const md5 = CryptoJS.MD5(str);
+        md5Hash = md5.toString();
+      }
+      return md5Hash;
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de Palavras Mnemônicos</title>
+</head>
+<body>
+    <h1>Gerador de Palavras Mnemônicos</h1>
+    <p>Insira um número ou uma sequência de números para gerar um mnemônico:</p>
+    <input type="text" id="inputNumber" />
+    <button onclick="generateMnemonic()">Gerar</button>
+    <p id="outputMnemonic"></p>
+
+<script>
+const mnemonics = {
+0: "<p>",
+1: "p",
+2: ">",
+3: "Três",
+4: "Quatro",
+5: "Cinco",
+6: "Seis",
+7: "Sete",
+8: "Oito",
+9: "&#123"    // Adicione mais mnemônicos conforme necessário
+        };
+
+        function generateMnemonic() {
+            const inputNumber = document.getElementById("inputNumber").value;
+            const mnemonic = convertToMnemonic(inputNumber);
+            document.getElementById("outputMnemonic").innerText = mnemonic;
+        }
+
+        function convertToMnemonic(input) {
+            let mnemonic = "";
+
+            for (let i = 0; i < input.length; i++) {
+                const digit = parseInt(input[i]);
+                mnemonic += mnemonics[digit];
+            }
+
+            return mnemonic;
+        }
+    </script>
+</body>
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
