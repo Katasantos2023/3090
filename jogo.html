@@ -1,0 +1,114 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>O Mundo Da Incerteza A gente perssa que vive num lugar onde se fala o que se perssa!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            align-content: center;
+            margin: 3px 0;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: black;
+            text-align: left;
+            background-color: #334;
+        }
+    
+        .caixa {
+            background-color: blue;
+            color: #333;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+            width: 250px;
+            margin: 20px auto;
+        }
+    
+        .caixa:hover {
+            transform: scale(1.05);
+        }
+    
+        h1 {
+            background-color: red;
+            color: blue;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 10px;
+        }
+    
+        hr {
+            background-color: aqua;
+            color: olive;
+            height: 1px;
+            border: none;
+            margin: 10px 0;
+        }
+    
+        h6 {
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1>O Mundo Da Incerteza A gente perssa que vive num lugar onde se fala o que se perssa!</h1>
+    <center>
+        
+        <p>
+            <div id="output" class="caixa" onclick="generateNewKey()">Click to Generate</div>
+        </p>
+    </center>
+    <hr>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    
+        function generateProductKey() {
+            var tokens = String.fromCharCode(9730, 9731, 9732, 9733, 9982);
+            chars = 8,
+            segments = 4,
+            keyString ='';
+            
+            for (var i = 0; i < segments; i++) {
+                var segment = '<br>';
+                
+                for (var j = 0; j < chars; j++) {
+                    var k = getRandomInt(0, 4);
+                    segment += tokens[k];
+                }
+                
+                keyString += segment;
+                
+                if (i < (segments - 1)) {
+                    keyString += '<br>';
+                }
+            }
+            
+            return keyString;
+        }
+        
+        function generateNewKey() {
+            var output = document.querySelector("#output");
+            var productKey = generateProductKey();
+            output.innerHTML = productKey;
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            var generate = document.querySelector("#generate");
+            generate.addEventListener("click", generateNewKey, true);
+        });
+    </script>
+    <hr>
+</body>
+</html>
