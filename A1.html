@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {background-color:#334;
+    margin: 5;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  .menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color:chocolate;
+    color: black;
+    text-align: center;
+    padding: 1px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .button {
+    background-color:indigo;
+    border: none;
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 90px;
+    transition: background-color 9.0s ease-in-out;
+  }
+
+  .button:hover {
+    background-color: indigo;
+  }
+
+  .content {
+    display: none;
+    padding: 2px;
+  }
+          .caixa {
+            background-color: lime;
+            color: black;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+            width: 250px;
+            margin: 20px auto;
+        }
+    
+        .caixa:hover {
+            transform: scale(1.05);
+        }
+        
+        
+    
+</style>
+<title>   </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!------------------------------->
+<div class="menu">
+  <button class="button" onclick="showContent(1)">Conteúdo 1</button>
+  <button class="button" onclick="showContent(2)">Conteúdo 2</button>
+  <button class="button" onclick="showContent(3)">Conteúdo 3</button>
+</div>
+<!------------------------------->
+<div class="content" id="content1">
+        
+        <p>
+            <div id="output" class="caixa" onclick="generateNewKey()">Click to Generate</div>
+        </p>
+    </center>
+    <hr>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    
+        function generateProductKey() {
+            var tokens = String.fromCharCode(9730, 9731, 9732, 9733, 9982);
+            chars = 8,
+            segments = 4,
+            keyString ='';
+            
+            for (var i = 0; i < segments; i++) {
+                var segment = '<br>';
+                
+                for (var j = 0; j < chars; j++) {
+                    var k = getRandomInt(0, 4);
+                    segment += tokens[k];
+                }
+                
+                keyString += segment;
+                
+                if (i < (segments - 1)) {
+                    keyString += '<br>';
+                }
+            }
+            
+            return keyString;
+        }
+        
+        function generateNewKey() {
+            var output = document.querySelector("#output");
+            var productKey = generateProductKey();
+            output.innerHTML = productKey;
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            var generate = document.querySelector("#generate");
+            generate.addEventListener("click", generateNewKey, true);
+        });
+    </script>
+</div>
+<!------------------------------->
+<div class="content" id="content2">
+    
+       <h1>Base64 Encoder / Decoder</h1>
+    <label for="inputText">Texto:</label> 
+    <textarea id="inputText" rows="4" cols="40"></textarea>
+    <br>
+    <button onclick="encode()">Encode</button>
+    <button onclick="decode()">Decode</button>
+    <br>
+    <label for="outputText">Resultado:</label> 
+    <textarea id="outputText" rows="4" cols="40" readonly></textarea>
+    
+    <script>
+        function encode() {
+            const inputText = document.getElementById('inputText').value;
+            const encodedText = btoa(inputText);
+            document.getElementById('outputText').value = encodedText;
+        }
+
+        function decode() {
+            const inputText = document.getElementById('inputText').value;
+            try {
+                const decodedText = atob(inputText);
+                document.getElementById('outputText').value = decodedText;
+            } catch (error) {
+                document.getElementById('outputText').value = "Erro: Texto Base64 inválido!";
+            }
+        }
+        //H1dl3090 //WeßOt
+    </script>
+    
+    
+  
+  
+</div>
+<!------------------------------->
+
+<div class="content" id="content3">
+veja
+<hr>
+<!------------------------------->
+    <style>
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(200%,200%);
+    grid-template-rows: repeat(600%, 90px);
+    gap: 15px;
+  }
+
+  .image-placeholder {
+      color: black;
+    width: 90%;
+    height: 600px;
+    border: 10px solid black;
+    background-color: silver;
+  }
+</style>
+
+
+<div class="image-container">
+
+<div class="image-placeholder">texto s </div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div>
+<div class="image-placeholder">4</div>
+<div class="image-placeholder">5</div> 
+
+
+</div>
+  
+  <!------------------------------->
+  
+  
+  
+</div>
+
+<script>
+  let activeContent = null;
+
+  function showContent(contentNumber) {
+    const content = document.getElementById('content' + contentNumber);
+    
+    if (activeContent !== content) {
+      if (activeContent) {
+        activeContent.style.display = 'none';
+      }
+      content.style.display = 'block';
+      activeContent = content;
+    } else {
+      content.style.display = 'none';
+      activeContent = null;
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
